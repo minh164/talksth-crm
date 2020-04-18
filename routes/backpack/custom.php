@@ -36,4 +36,8 @@ Route::group([
             });
         }
     }
+
+    // My routes
+    Route::get('chat', 'ChatController@renderView')->name('admin.chat');
+
 }); // this should be the absolute last line of this file
