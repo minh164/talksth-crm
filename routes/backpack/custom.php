@@ -9,7 +9,9 @@
 Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
 Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
 Route::get('api/article/{id}', 'App\Http\Controllers\Api\ArticleController@show');
-
+Route::get('abc', function (){
+    return view('welcome');
+});
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
     'middleware' => ['web', config('backpack.base.middleware_key', 'admin')],

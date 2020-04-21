@@ -16,7 +16,8 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \Spatie\Cors\Cors::class
+//        'cors'      => \App\Http\Middleware\Cors::class,
+//        \Spatie\Cors\Cors::class
     ];
 
     /**
