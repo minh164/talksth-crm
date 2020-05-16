@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Config\Constant;
 use App\Http\Controllers\Controller;
 use App\Models\Channel;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -63,7 +63,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
@@ -87,7 +87,6 @@ class RegisterController extends Controller
 
 
 //        });
-
 
         return $user;
     }

@@ -22,7 +22,8 @@
         "spatie/laravel-backup": "^6.1",
         "laravel/tinker": "^1.0",
         "facade/ignition": "^1.11",
-        "spatie/laravel-cors": "^1.6"
+        "spatie/laravel-cors": "^1.6",
+        "tymon/jwt-auth": "1.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

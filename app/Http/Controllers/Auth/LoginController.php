@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\JWTAuth;
 
 class LoginController extends Controller
 {
@@ -36,5 +39,22 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        $token = auth('web')
+            ->claims(['email' => $request['email']])
+            ->attempt($credentials);
+
+        try {
+            if (!$token) {
+                return response()->json(['invalid_email_or_password'], 422);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['failed_to_create_token'], 500);
+        }
+        return response()->json(compact('token'));
     }
 }
